@@ -1,5 +1,7 @@
 package com.twentyfour.games.twentyfour;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 title.setText("24");
+                title.setTextColor(Color.rgb(rand(255), rand(255), rand(255)));
+            }
+            private int rand(int n) {
+                return (int) (n * Math.random());
             }
         };
         startButton.setOnClickListener(onClickListener);
