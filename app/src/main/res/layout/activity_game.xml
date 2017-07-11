@@ -179,11 +179,20 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
-            android:id="@+id/temp"
+            android:id="@+id/input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TEMP"
+            android:text=""
+            android:textAlignment="center"
             android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" = 0"
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
     </LinearLayout>
 

@@ -2,7 +2,10 @@ package com.twentyfour.games.twentyfour;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
 
@@ -50,15 +53,38 @@ public class Game extends AppCompatActivity {
 
         }
 
+        final TextView input = (TextView) findViewById(R.id.input);
+
+        View.OnClickListener updateInput = new View.OnClickListener() {
+            public void onClick(View view) {
+                Button button = (Button) view;
+                input.setText("" + input.getText() + " " + button.getText() + " ");
+            }
+        };
+
         Button button1 = (Button) findViewById(R.id.num1);
         Button button2 = (Button) findViewById(R.id.num2);
         Button button3 = (Button) findViewById(R.id.num3);
         Button button4 = (Button) findViewById(R.id.num4);
 
+        Button add = (Button) findViewById(R.id.addButton);
+        Button sub = (Button) findViewById(R.id.subtractButton);
+        Button mult = (Button) findViewById(R.id.multiplyButton);
+        Button div = (Button) findViewById(R.id.divideButton);
+
         button1.setText(nums[0] + "");
         button2.setText(nums[1] + "");
         button3.setText(nums[2] + "");
         button4.setText(nums[3] + "");
+
+        button1.setOnClickListener(updateInput);
+        button2.setOnClickListener(updateInput);
+        button3.setOnClickListener(updateInput);
+        button4.setOnClickListener(updateInput);
+        add.setOnClickListener(updateInput);
+        sub.setOnClickListener(updateInput);
+        mult.setOnClickListener(updateInput);
+        div.setOnClickListener(updateInput);
 
         System.out.println(nums[0]);
         System.out.println(nums[1]);
@@ -82,6 +108,5 @@ public class Game extends AppCompatActivity {
     private int randomOperation() {
         return (int) (Math.random() * 4);
     }
-
 
 }
