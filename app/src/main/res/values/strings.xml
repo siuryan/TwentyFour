@@ -2,4 +2,6 @@
     <string name="app_name">Twenty Four</string>
     <string name="startButton">Start</string>
     <string name="optionsButton">Options</string>
+    <string name="resetButton">RESET</string>
+    <string name="emptyExpression"> = 0</string>
 </resources>

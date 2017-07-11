@@ -190,9 +190,18 @@
             android:id="@+id/total"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" = 0"
+            android:text="@string/emptyExpression"
             android:textAlignment="center"
             android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/resetButton"
+            style="@android:style/Widget.Material.Light.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/resetButton"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="12sp" />
 
     </LinearLayout>
 

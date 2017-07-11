@@ -1,8 +1,8 @@
 package com.twentyfour.games.twentyfour;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -58,45 +58,69 @@ public class Game extends AppCompatActivity {
         final TextView inputTextView = (TextView) findViewById(R.id.input);
         final TextView totalTextView = (TextView) findViewById(R.id.total);
 
+        final Button button1 = (Button) findViewById(R.id.num1);
+        final Button button2 = (Button) findViewById(R.id.num2);
+        final Button button3 = (Button) findViewById(R.id.num3);
+        final Button button4 = (Button) findViewById(R.id.num4);
+
         View.OnClickListener updateInput = new View.OnClickListener() {
             public void onClick(View view) {
                 String inputText = inputTextView.getText().toString();
                 Button button = (Button) view;
 
-                if (inputText.length() == 0) {
-                    if (isNumeric(button.getText().toString())) {
-                        inputTextView.setText(inputTextView.getText() + " " + button.getText() + " ");
-                        updateTotal(inputTextView.getText().toString());
-                    }
-                } else if (isNumeric(inputText.substring(inputText.length() - 2, inputText.length() - 1))) {
+                double expTotal = 0;
+
+                if (inputText.length() != 0 && isNumeric(inputText.substring(inputText.length() - 2, inputText.length() - 1))) {
                     if (!isNumeric(button.getText().toString())) {
                         inputTextView.setText(inputTextView.getText() + " " + button.getText() + " ");
                     }
                 } else {
                     if (isNumeric(button.getText().toString())) {
                         inputTextView.setText(inputTextView.getText() + " " + button.getText() + " ");
-                        updateTotal(inputTextView.getText().toString());
+                        expTotal = updateTotal(inputTextView.getText().toString());
+                        view.setEnabled(false);
                     }
+                }
+
+                // Check if equal to 24
+                if (expTotal == 24 && buttonsDisabled()) {
+                    button.setText("You win.");
+                    startActivity(new Intent(Game.this, Game.class));
                 }
 
             }
 
-            private void updateTotal(String exp) {
+            private double updateTotal(String exp) {
                 Expression e = new Expression(exp);
                 double val = e.solve();
                 totalTextView.setText(" = " + val);
+                return val;
+            }
+
+            private boolean buttonsDisabled() {
+                return !(button1.isEnabled() || button2.isEnabled() || button3.isEnabled() || button4.isEnabled());
             }
         };
 
-        Button button1 = (Button) findViewById(R.id.num1);
-        Button button2 = (Button) findViewById(R.id.num2);
-        Button button3 = (Button) findViewById(R.id.num3);
-        Button button4 = (Button) findViewById(R.id.num4);
+        View.OnClickListener reset = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputTextView.setText("");
+                totalTextView.setText(R.string.emptyExpression);
+                button1.setEnabled(true);
+                button2.setEnabled(true);
+                button3.setEnabled(true);
+                button4.setEnabled(true);
+            }
+        };
 
         Button add = (Button) findViewById(R.id.addButton);
         Button sub = (Button) findViewById(R.id.subtractButton);
         Button mult = (Button) findViewById(R.id.multiplyButton);
         Button div = (Button) findViewById(R.id.divideButton);
+
+        Button resetButton = (Button) findViewById(R.id.resetButton);
+        resetButton.setOnClickListener(reset);
 
         button1.setText(nums[0] + "");
         button2.setText(nums[1] + "");
