@@ -1,8 +1,7 @@
 package com.twentyfour.games.twentyfour;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -57,8 +56,21 @@ public class Game extends AppCompatActivity {
 
         View.OnClickListener updateInput = new View.OnClickListener() {
             public void onClick(View view) {
+                String inputText = input.getText().toString();
                 Button button = (Button) view;
-                input.setText("" + input.getText() + " " + button.getText() + " ");
+
+                if (inputText.length() == 0) {
+                    input.setText(input.getText() + " " + button.getText() + " ");
+                } else if (isNumeric(inputText.substring(inputText.length() - 2, inputText.length() - 1))) {
+                    if (!isNumeric(button.getText().toString())) {
+                        input.setText(input.getText() + " " + button.getText() + " ");
+                    }
+                } else {
+                    if (isNumeric(button.getText().toString())) {
+                        input.setText(input.getText() + " " + button.getText() + " ");
+                    }
+                }
+
             }
         };
 
@@ -86,11 +98,6 @@ public class Game extends AppCompatActivity {
         mult.setOnClickListener(updateInput);
         div.setOnClickListener(updateInput);
 
-        System.out.println(nums[0]);
-        System.out.println(nums[1]);
-        System.out.println(nums[2]);
-        System.out.println(nums[3]);
-
     }
 
     /**
@@ -107,6 +114,21 @@ public class Game extends AppCompatActivity {
      */
     private int randomOperation() {
         return (int) (Math.random() * 4);
+    }
+
+    /**
+     * Determines if input String is a number.
+     *
+     * @param str any String
+     * @return true if str is a number, false otherwise
+     */
+    private boolean isNumeric(String str) {
+        try {
+            double d = Double.parseDouble(str);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
 }
