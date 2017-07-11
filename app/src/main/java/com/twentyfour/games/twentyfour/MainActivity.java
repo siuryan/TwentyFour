@@ -1,6 +1,6 @@
 package com.twentyfour.games.twentyfour;
 
-import android.content.res.ColorStateList;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         Button startButton = (Button) findViewById(R.id.startButton);
         Button optionsButton = (Button) findViewById(R.id.optionsButton);
 
-        View.OnClickListener onClickListener = new View.OnClickListener() {
+        View.OnClickListener optionsClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 title.setText("24");
@@ -30,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
                 return (int) (n * Math.random());
             }
         };
-        startButton.setOnClickListener(onClickListener);
+        optionsButton.setOnClickListener(optionsClickListener);
+
+        View.OnClickListener startClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, Game.class));
+            }
+        };
+        startButton.setOnClickListener(startClickListener);
     }
 }

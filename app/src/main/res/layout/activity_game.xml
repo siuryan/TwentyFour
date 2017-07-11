@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.twentyfour.games.twentyfour.Game">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/layoutPadding"
+        android:layout_marginEnd="@dimen/layoutPadding"
+        android:layout_marginLeft="@dimen/layoutPadding"
+        android:layout_marginRight="@dimen/layoutPadding"
+        android:layout_marginStart="@dimen/layoutPadding"
+        android:layout_marginTop="@dimen/layoutPadding"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num1"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/layoutPadding"
+                android:layout_marginRight="@dimen/layoutPadding"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:text="NUM1"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/num2"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/layoutPadding"
+                android:layout_marginRight="@dimen/layoutPadding"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:text="NUM2"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num3"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/layoutPadding"
+                android:layout_marginRight="@dimen/layoutPadding"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:text="NUM3"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/num4"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/layoutPadding"
+                android:layout_marginRight="@dimen/layoutPadding"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:text="NUM4"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        style="?android:buttonBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/layoutPadding"
+        android:layout_marginEnd="@dimen/layoutPadding"
+        android:layout_marginLeft="@dimen/layoutPadding"
+        android:layout_marginRight="@dimen/layoutPadding"
+        android:layout_marginStart="@dimen/layoutPadding"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tableLayout">
+
+        <Button
+            android:id="@+id/addButton"
+            style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:text="+"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/subtractButton"
+            style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:text="-"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/multiplyButton"
+            style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:text="*"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/divideButton"
+            style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:text="/"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
