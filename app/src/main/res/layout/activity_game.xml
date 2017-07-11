@@ -18,15 +18,15 @@
         android:layout_marginTop="@dimen/layoutPadding"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height = "0dp"
-            android:layout_weight = "1"
+            android:layout_height="0dp"
+            android:layout_weight="1"
 
             android:gravity="center">
 
@@ -35,10 +35,10 @@
                 style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/layoutPadding"
                 android:layout_marginLeft="@dimen/layoutPadding"
                 android:layout_marginRight="@dimen/layoutPadding"
                 android:layout_marginTop="@dimen/layoutPadding"
-                android:layout_marginBottom="@dimen/layoutPadding"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:text="NUM1"
@@ -50,10 +50,10 @@
                 style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/layoutPadding"
                 android:layout_marginLeft="@dimen/layoutPadding"
                 android:layout_marginRight="@dimen/layoutPadding"
                 android:layout_marginTop="@dimen/layoutPadding"
-                android:layout_marginBottom="@dimen/layoutPadding"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:text="NUM2"
@@ -64,8 +64,8 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height = "0dp"
-            android:layout_weight = "1"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="center">
 
             <Button
@@ -73,10 +73,10 @@
                 style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/layoutPadding"
                 android:layout_marginLeft="@dimen/layoutPadding"
                 android:layout_marginRight="@dimen/layoutPadding"
                 android:layout_marginTop="@dimen/layoutPadding"
-                android:layout_marginBottom="@dimen/layoutPadding"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:text="NUM3"
@@ -88,10 +88,10 @@
                 style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/layoutPadding"
                 android:layout_marginLeft="@dimen/layoutPadding"
                 android:layout_marginRight="@dimen/layoutPadding"
                 android:layout_marginTop="@dimen/layoutPadding"
-                android:layout_marginBottom="@dimen/layoutPadding"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:text="NUM4"
@@ -124,44 +124,40 @@
             style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:fontFamily="sans-serif-condensed"
             android:text="+"
             android:textColor="?android:attr/textColorSecondary"
-            android:textSize="36sp" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/subtractButton"
             style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:fontFamily="sans-serif-condensed"
             android:text="-"
             android:textColor="?android:attr/textColorSecondary"
-            android:textSize="36sp" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/multiplyButton"
             style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:fontFamily="sans-serif-condensed"
             android:text="*"
             android:textColor="?android:attr/textColorSecondary"
-            android:textSize="36sp" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/divideButton"
             style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:fontFamily="sans-serif-condensed"
             android:text="/"
             android:textColor="?android:attr/textColorSecondary"
-            android:textSize="36sp" />
+            android:textSize="30sp" />
 
     </LinearLayout>
 
@@ -169,12 +165,12 @@
         android:id="@+id/inputBox"
         style="?android:buttonBarStyle"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/layoutPadding"
-        android:layout_marginEnd="@dimen/layoutPadding"
-        android:layout_marginLeft="@dimen/layoutPadding"
-        android:layout_marginRight="@dimen/layoutPadding"
-        android:layout_marginStart="@dimen/layoutPadding"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/largeLayoutPadding"
+        android:layout_marginEnd="@dimen/largeLayoutPadding"
+        android:layout_marginLeft="@dimen/largeLayoutPadding"
+        android:layout_marginRight="@dimen/largeLayoutPadding"
+        android:layout_marginStart="@dimen/largeLayoutPadding"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -186,7 +182,9 @@
             android:id="@+id/temp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TEMP" />
+            android:text="TEMP"
+            android:textSize="30sp"/>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

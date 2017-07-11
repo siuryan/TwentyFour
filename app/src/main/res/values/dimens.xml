@@ -2,5 +2,6 @@
 <resources>
 
     <dimen name="layoutPadding">8dp</dimen>
+    <dimen name="largeLayoutPadding">16dp</dimen>
 
 </resources>
