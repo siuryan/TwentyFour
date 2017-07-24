@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import static com.twentyfour.games.twentyfour.Expression.isNumeric;
 
-public class Game extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,9 @@ public class Game extends AppCompatActivity {
         final Button button2 = (Button) findViewById(R.id.num2);
         final Button button3 = (Button) findViewById(R.id.num3);
         final Button button4 = (Button) findViewById(R.id.num4);
+        final Button lParen = (Button) findViewById(R.id.leftParenButton);
+        final Button rParen = (Button) findViewById(R.id.rightParenButton);
+
 
         View.OnClickListener updateInput = new View.OnClickListener() {
             public void onClick(View view) {
@@ -85,7 +88,7 @@ public class Game extends AppCompatActivity {
                 // Check if equal to 24
                 if (expTotal == 24 && buttonsDisabled()) {
                     button.setText("You win.");
-                    startActivity(new Intent(Game.this, Game.class));
+                    startActivity(new Intent(GameActivity.this, GameActivity.class));
                 }
 
             }
@@ -135,6 +138,8 @@ public class Game extends AppCompatActivity {
         sub.setOnClickListener(updateInput);
         mult.setOnClickListener(updateInput);
         div.setOnClickListener(updateInput);
+        lParen.setOnClickListener(updateInput);
+        rParen.setOnClickListener(updateInput);
 
     }
 

@@ -2,6 +2,7 @@ package com.twentyfour.games.twentyfour;
 
 
 import android.util.Log;
+import java.util.Stack;
 
 import java.util.ArrayList;
 
@@ -27,6 +28,27 @@ class Expression {
             i++;
         }
 
+        String ops = "()+-/*%sqrt";
+        Stack<String> operators = new Stack<String>();
+        Stack<Double> nums = new Stack<Double>();
+        for(String token: numOps) {
+            if(token.equals("("));
+            else if(token.equals(")")) {
+                String op = operators.pop();
+                if(op.equals("sqrt")) {
+                    nums.push(Math.sqrt(nums.pop()));
+                } else {
+                    nums.push(operate(nums.pop(),nums.pop(),op));
+                }
+            } else if(ops.indexOf(token) != -1) {
+                operators.push(token);
+            } else {
+                nums.push(Double.parseDouble(token));
+            }
+        }
+        return nums.pop();
+
+        /*
         // Solve using the ArrayList
         double total = 0;
         String operator = "+";
@@ -51,8 +73,20 @@ class Expression {
                 operator = input.trim();
             }
         }
+        */
+    }
 
-        return total;
+    static double operate(double a, double b, String op) {
+        if(op.equals("+")) {
+            return b + a;
+        }
+        if(op.equals("-")) {
+            return b - a;
+        }
+        if(op.equals("/")) {
+            return b / a;
+        }
+        return b * a;
     }
 
     /**
