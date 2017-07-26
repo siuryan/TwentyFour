@@ -29,7 +29,7 @@ class Expression {
             }
             i++;
         }
-        System.out.println(numOps);
+        // System.out.println(numOps);
 
         String ops = "/*+-";
         Stack<String> operators = new Stack<>();
@@ -42,20 +42,20 @@ class Expression {
                     int[] currProps = operatorProperties(token);
                     int[] prevProps = operatorProperties(operators.peek());
                     boolean greaterPrec = prevProps[1] > currProps[1];
-                    System.out.println("ops: " + operators);
-                    System.out.println("out: " + output);
+                    // System.out.println("ops: " + operators);
+                    // System.out.println("out: " + output);
                     while(!operators.empty() && (greaterPrec || (prevProps[1] == currProps[1] && prevProps[2] == 1))) {
-                        if(token == "/" && operators.peek() == "+")
-                            System.out.println("test");
                         output.add(operators.pop());
+                        currProps = operatorProperties(token);
+                        prevProps = operatorProperties(operators.peek());
                     }
                 }
                 operators.push(token);
             } else if(token.equals("(")) {
-                System.out.println(operators);
+                // System.out.println(operators);
                 operators.push(token);
             } else {
-                System.out.println(operators);
+                // System.out.println(operators);
                 while(!operators.peek().equals("(")) {
                     output.add(operators.pop());
                 }
@@ -65,7 +65,7 @@ class Expression {
         while(!operators.empty()) {
             output.add(operators.pop());
         }
-        System.out.println(output);
+        // System.out.println(output);
 
         Stack<Double> nums = new Stack<>();
         while(!output.isEmpty()) {
