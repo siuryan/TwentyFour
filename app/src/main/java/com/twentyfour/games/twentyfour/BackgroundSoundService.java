@@ -10,13 +10,13 @@ public class BackgroundSoundService extends Service {
 
     MediaPlayer player;
     public IBinder onBind(Intent arg0) {
-
         return null;
     }
+
     @Override
     public void onCreate() {
         super.onCreate();
-        player = MediaPlayer.create(this, R.raw.shape_of_you);
+        player = MediaPlayer.create(this, R.raw.music);
         player.setLooping(true); // Set looping
     }
 

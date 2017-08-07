@@ -1,9 +1,11 @@
 package com.twentyfour.games.twentyfour;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,9 +13,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    MediaPlayer mMediaPlayer;
-    Intent mSoundService;
+    public static final String PREFS_NAME = "OPTIONS";
 
+    Intent mSoundService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +50,22 @@ public class MainActivity extends AppCompatActivity {
         };
         startButton.setOnClickListener(startClickListener);
 
-        mSoundService = new Intent(this, BackgroundSoundService.class);
-        startService(mSoundService);
+        SharedPreferences settings = getApplicationContext().getSharedPreferences(PREFS_NAME, 0);
+        boolean silent = settings.getBoolean("silentMode", true);
+
+        if (!silent) {
+            mSoundService = new Intent(this, BackgroundSoundService.class);
+            startService(mSoundService);
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        stopService(mSoundService);
+        try {
+            stopService(mSoundService);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
