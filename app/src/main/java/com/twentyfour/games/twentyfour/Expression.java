@@ -6,8 +6,6 @@ import java.util.Stack;
 import java.util.Queue;
 import java.util.ArrayDeque;
 
-import java.util.ArrayList;
-
 class Expression {
 
     private String _exp;
@@ -17,19 +15,8 @@ class Expression {
     }
 
     double solve() {
-// Parse expression and put into ArrayList
-        ArrayList<String> numOps = new ArrayList<>();
-        String exp = _exp;
-        int i = 1;
-        while (exp.length() > 1) {
-            if (exp.substring(i, i + 1).equals(" ")) {
-                numOps.add(exp.substring(0, i));
-                exp = exp.substring(i + 1);
-                i = 0;
-            }
-            i++;
-        }
-        // System.out.println(numOps);
+        // Parse expression by whitespace and put into array
+        String[] numOps = _exp.split("\\s+");
 
         String ops = "/*+-";
         Stack<String> operators = new Stack<>();
