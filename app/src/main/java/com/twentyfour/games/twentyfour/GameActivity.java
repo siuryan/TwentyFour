@@ -70,16 +70,20 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String inputText = inputTextView.getText().toString();
                 Button button = (Button) view;
+                String buttonText = button.getText().toString();
 
                 double expTotal = 0;
 
                 if (inputText.length() != 0 && isNumeric(inputText.substring(inputText.length() - 2, inputText.length() - 1))) {
-                    if (!isNumeric(button.getText().toString())) {
-                        inputTextView.setText(inputTextView.getText() + " " + button.getText() + " ");
+                    if (isOperator(buttonText)) {
+                        inputTextView.setText(inputTextView.getText() + " " + buttonText + " ");
+                    } else if(buttonText.equals(")")) {
+                        inputTextView.setText(inputTextView.getText() + " " + buttonText + " ");
+                        expTotal = updateTotal(inputTextView.getText().toString());
                     }
                 } else {
+                    inputTextView.setText(inputTextView.getText() + " " + buttonText + " ");
                     if (isNumeric(button.getText().toString())) {
-                        inputTextView.setText(inputTextView.getText() + " " + button.getText() + " ");
                         expTotal = updateTotal(inputTextView.getText().toString());
                         view.setEnabled(false);
                     }
@@ -102,6 +106,10 @@ public class GameActivity extends AppCompatActivity {
 
             private boolean buttonsDisabled() {
                 return !(button1.isEnabled() || button2.isEnabled() || button3.isEnabled() || button4.isEnabled());
+            }
+
+            private boolean isOperator(String input) {
+                return "+-*/".indexOf(input) != -1;
             }
         };
 
